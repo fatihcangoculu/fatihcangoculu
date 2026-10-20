@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 420" width="100%" height="420">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="100%" stop-color="#161b22"/>
+    </linearGradient>
+    <linearGradient id="barGreen" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#238636"/>
+      <stop offset="100%" stop-color="#3fb950"/>
+    </linearGradient>
+    <linearGradient id="barBlue" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1f6feb"/>
+      <stop offset="100%" stop-color="#58a6ff"/>
+    </linearGradient>
+    <linearGradient id="barPurple" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6e40c9"/>
+      <stop offset="100%" stop-color="#bc8cff"/>
+    </linearGradient>
+    <linearGradient id="barAmber" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#9e6a03"/>
+      <stop offset="100%" stop-color="#d29922"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Main Card Frame -->
+  <rect x="2" y="2" width="916" height="416" rx="12" fill="url(#bgGrad)" stroke="#30363d" stroke-width="2"/>
+
+  <!-- Top Terminal Header -->
+  <rect x="2" y="2" width="916" height="38" rx="12" fill="#161b22"/>
+  <line x1="2" y1="40" x2="918" y2="40" stroke="#30363d" stroke-width="1.5"/>
+  <circle cx="24" cy="21" r="6" fill="#ff5f56"/>
+  <circle cx="44" cy="21" r="6" fill="#ffbd2e"/>
+  <circle cx="64" cy="21" r="6" fill="#27c93f"/>
+  <text x="460" y="25" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="13" font-weight="600" fill="#8b949e" text-anchor="middle">fatihcangoculu@llm-research-lab: ~/sayzek-atp-benchmarks (PyTorch • CUDA • 3x RK3566)</text>
+
+  <!-- Left Column: KV Cache Compression Benchmark -->
+  <rect x="22" y="56" width="430" height="342" rx="8" fill="#0d1117" stroke="#30363d" stroke-width="1.2"/>
+  <text x="38" y="82" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" fill="#58a6ff">1. Reasoning KV-Cache Compression (20% Budget)</text>
+  <text x="38" y="102" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" fill="#8b949e">Model: DeepSeek-R1-Distill-Qwen-7B | Dataset: GSM8K (CoT)</text>
+
+  <!-- Bar 1: AnchorAwarePress (Ours) -->
+  <text x="38" y="132" font-family="ui-monospace, monospace" font-size="12" font-weight="700" fill="#3fb950">AnchorAwarePress (Ours)</text>
+  <text x="434" y="132" font-family="ui-monospace, monospace" font-size="12" font-weight="700" fill="#3fb950" text-anchor="end">84.6% (1,095 tok)</text>
+  <rect x="38" y="140" width="396" height="14" rx="4" fill="#21262d"/>
+  <rect x="38" y="140" width="358" height="14" rx="4" fill="url(#barGreen)"/>
+
+  <!-- Bar 2: Full KV Baseline -->
+  <text x="38" y="176" font-family="ui-monospace, monospace" font-size="12" fill="#c9d1d9">Full KV Cache (100% Mem)</text>
+  <text x="434" y="176" font-family="ui-monospace, monospace" font-size="12" fill="#8b949e" text-anchor="end">84.2% (1,140 tok)</text>
+  <rect x="38" y="184" width="396" height="14" rx="4" fill="#21262d"/>
+  <rect x="38" y="184" width="355" height="14" rx="4" fill="url(#barBlue)"/>
+
+  <!-- Bar 3: R-KV -->
+  <text x="38" y="220" font-family="ui-monospace, monospace" font-size="12" fill="#c9d1d9">R-KV (Redundancy-Aware)</text>
+  <text x="434" y="220" font-family="ui-monospace, monospace" font-size="12" fill="#8b949e" text-anchor="end">83.5% (1,165 tok)</text>
+  <rect x="38" y="228" width="396" height="14" rx="4" fill="#21262d"/>
+  <rect x="38" y="228" width="348" height="14" rx="4" fill="url(#barPurple)"/>
+
+  <!-- Bar 4: SnapKV-Decoding -->
+  <text x="38" y="264" font-family="ui-monospace, monospace" font-size="12" fill="#c9d1d9">SnapKV-Decoding</text>
+  <text x="434" y="264" font-family="ui-monospace, monospace" font-size="12" fill="#8b949e" text-anchor="end">79.8% (1,290 tok)</text>
+  <rect x="38" y="272" width="396" height="14" rx="4" fill="#21262d"/>
+  <rect x="38" y="272" width="322" height="14" rx="4" fill="url(#barAmber)"/>
+
+  <!-- Bar 5: StreamingLLM -->
+  <text x="38" y="308" font-family="ui-monospace, monospace" font-size="12" fill="#c9d1d9">StreamingLLM (Sink+Win)</text>
+  <text x="434" y="308" font-family="ui-monospace, monospace" font-size="12" fill="#f85149" text-anchor="end">58.4% (Trace Inflation)</text>
+  <rect x="38" y="316" width="396" height="14" rx="4" fill="#21262d"/>
+  <rect x="38" y="316" width="232" height="14" rx="4" fill="#da3633"/>
+
+  <!-- Formula Footer -->
+  <rect x="38" y="344" width="396" height="40" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="236" y="368" font-family="ui-monospace, monospace" font-size="11.5" fill="#79c0ff" text-anchor="middle">Score(t_i) = α·Attn(t_i) + β·I_anchor(t_i) - γ·max cos(K_i, K_j)</text>
+
+  <!-- Right Column: 3-Node Edge RK3566 & MCP Security Sidecar -->
+  <rect x="468" y="56" width="430" height="342" rx="8" fill="#0d1117" stroke="#30363d" stroke-width="1.2"/>
+  <text x="484" y="82" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" fill="#bc8cff">2. Edge LLM Roofline &amp; MCP Security Sidecar</text>
+  <text x="484" y="102" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" fill="#8b949e">Cluster: 3x Firefly RK3566-ROC-PC (4x Cortex-A55, 1 TOPS NPU)</text>
+
+  <!-- Architecture Pipeline Boxes -->
+  <rect x="484" y="118" width="118" height="58" rx="6" fill="#161b22" stroke="#58a6ff" stroke-width="1.5"/>
+  <text x="543" y="142" font-family="ui-sans-serif, sans-serif" font-size="12" font-weight="700" fill="#58a6ff" text-anchor="middle">Prompt / Tool</text>
+  <text x="543" y="160" font-family="ui-monospace, monospace" font-size="10" fill="#8b949e" text-anchor="middle">MCP JSON-RPC</text>
+
+  <text x="615" y="151" font-family="ui-monospace, monospace" font-size="16" font-weight="700" fill="#8b949e" text-anchor="middle">→</text>
+
+  <rect x="628" y="118" width="124" height="58" rx="6" fill="#161b22" stroke="#3fb950" stroke-width="1.5"/>
+  <text x="690" y="142" font-family="ui-sans-serif, sans-serif" font-size="12" font-weight="700" fill="#3fb950" text-anchor="middle">C-Sidecar Guard</text>
+  <text x="690" y="160" font-family="ui-monospace, monospace" font-size="10" fill="#c9d1d9" text-anchor="middle">0.013–0.052 ms</text>
+
+  <text x="765" y="151" font-family="ui-monospace, monospace" font-size="16" font-weight="700" fill="#8b949e" text-anchor="middle">→</text>
+
+  <rect x="778" y="118" width="104" height="58" rx="6" fill="#161b22" stroke="#bc8cff" stroke-width="1.5"/>
+  <text x="830" y="142" font-family="ui-sans-serif, sans-serif" font-size="12" font-weight="700" fill="#bc8cff" text-anchor="middle">LLM + RAG</text>
+  <text x="830" y="160" font-family="ui-monospace, monospace" font-size="10" fill="#8b949e" text-anchor="middle">Q4_0 / RKNN</text>
+
+  <!-- Telemetry Console Box -->
+  <rect x="484" y="192" width="398" height="192" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="498" y="216" font-family="ui-monospace, monospace" font-size="11.5" fill="#3fb950">$ ./rk3566_roofline_probe &amp;&amp; ./mcp_guard_sidecar</text>
+  <text x="498" y="238" font-family="ui-monospace, monospace" font-size="11" fill="#c9d1d9">[Node A] memcpy=1.639 GB/s | SGEMM=0.378 GFLOPS | eMMC=98.6 MB/s</text>
+  <text x="498" y="258" font-family="ui-monospace, monospace" font-size="11" fill="#c9d1d9">[Node B] memcpy=1.921 GB/s | SGEMM=0.375 GFLOPS | eMMC=106 MB/s</text>
+  <text x="498" y="278" font-family="ui-monospace, monospace" font-size="11" fill="#c9d1d9">[Node C] memcpy=2.012 GB/s | SGEMM=0.389 GFLOPS | NPU=50.2 ms</text>
+  <line x1="498" y1="292" x2="868" y2="292" stroke="#30363d" stroke-width="1"/>
+  <text x="498" y="312" font-family="ui-monospace, monospace" font-size="11" fill="#79c0ff">[Guard] SchemaPin + PromptGuard-Lite + CodeShield-CWE:</text>
+  <text x="498" y="332" font-family="ui-monospace, monospace" font-size="11" fill="#3fb950">  ✓ 4/4 Attacks Blocked (fake_deploy, override, CWE-120, jailbreak)</text>
+  <text x="498" y="352" font-family="ui-monospace, monospace" font-size="11" fill="#3fb950">  ✓ 4/4 Benign Tool Calls Allowed (FPR = 0.0%, Recall = 100%)</text>
+  <text x="498" y="372" font-family="ui-monospace, monospace" font-size="11" fill="#d29922">[FedAvg] 3-Node Federated Guardrail Acc: 99.22% (132 B weights)</text>
+</svg>
